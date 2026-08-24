@@ -18,24 +18,28 @@ jobs:
       with:
         node-version: 20
 
-    - name: Clean, Install & Build App
+    - name: Dynamic Path Fix, Install & Build App
       run: |
         set -e
-        # Move src into place if present at root
-        if [ -d "src" ]; then
-          mkdir -p kyron-os-v
-          cp -r src kyron-os-v/
+
+        # 1. Find where index.html and package.json actually exist
+        TARGET_DIR=$(dirname $(find . -name "index.html" | head -n 1))
+        echo "Found project root at: $TARGET_DIR"
+
+        # 2. Find where the uploaded src folder is located
+        SRC_DIR=$(find . -type d -name "src" | head -n 1)
+        echo "Found src at: $SRC_DIR"
+
+        # 3. Copy src into the target directory if not already there
+        if [ "$TARGET_DIR" != "$SRC_DIR" ] && [ -n "$SRC_DIR" ]; then
+          cp -r "$SRC_DIR" "$TARGET_DIR/"
         fi
 
-        # Enter project directory if it exists, otherwise stay in root
-        if [ -f "kyron-os-v/package.json" ]; then
-          cd kyron-os-v
-        fi
+        # 4. Navigate to project root
+        cd "$TARGET_DIR"
 
-        # Clean old Windows node_modules
+        # 5. Clean stale node_modules & build
         rm -rf node_modules package-lock.json
-
-        # Fresh install & build
         npm install
         npm run build
 
@@ -43,6 +47,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: KyronOS-Windows-Build
-        path: |
-          dist
-          kyron-os-v/dist
+        path: "**/dist/**"
