@@ -18,26 +18,25 @@ jobs:
       with:
         node-version: 20
 
-    - name: Setup Project Structure & Install
+    - name: Clean, Install & Build App
       run: |
-        # Check if project is nested inside kyron-os-v
-        if [ -d "kyron-os-v" ]; then
-          cd kyron-os-v
-        fi
-        
-        # Ensure src is in the right place
-        if [ ! -d "src" ] && [ -d "../src" ]; then
-          cp -r ../src ./
+        set -e
+        # Move src into place if present at root
+        if [ -d "src" ]; then
+          mkdir -p kyron-os-v
+          cp -r src kyron-os-v/
         fi
 
+        # Enter project directory if it exists, otherwise stay in root
+        if [ -f "kyron-os-v/package.json" ]; then
+          cd kyron-os-v
+        fi
+
+        # Clean old Windows node_modules
         rm -rf node_modules package-lock.json
-        npm install
 
-    - name: Build Web App
-      run: |
-        if [ -d "kyron-os-v" ]; then
-          cd kyron-os-v
-        fi
+        # Fresh install & build
+        npm install
         npm run build
 
     - name: Package Dist Artifacts
@@ -45,5 +44,5 @@ jobs:
       with:
         name: KyronOS-Windows-Build
         path: |
-          dist/
-          kyron-os-v/dist/
+          dist
+          kyron-os-v/dist
