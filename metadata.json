@@ -1,0 +1,6 @@
+{
+  "name": "KYRON OS",
+  "description": "KYRON OS 14-Stage Unified Automotive Content Automation & Intelligence Runtime with Human Approval Queue and Architect Matrix",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
