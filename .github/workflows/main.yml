@@ -18,16 +18,32 @@ jobs:
       with:
         node-version: 20
 
-    - name: Clean Old Modules & Reinstall
+    - name: Setup Project Structure & Install
       run: |
+        # Check if project is nested inside kyron-os-v
+        if [ -d "kyron-os-v" ]; then
+          cd kyron-os-v
+        fi
+        
+        # Ensure src is in the right place
+        if [ ! -d "src" ] && [ -d "../src" ]; then
+          cp -r ../src ./
+        fi
+
         rm -rf node_modules package-lock.json
         npm install
 
     - name: Build Web App
-      run: npm run build
+      run: |
+        if [ -d "kyron-os-v" ]; then
+          cd kyron-os-v
+        fi
+        npm run build
 
     - name: Package Dist Artifacts
       uses: actions/upload-artifact@v4
       with:
         name: KyronOS-Windows-Build
-        path: dist/
+        path: |
+          dist/
+          kyron-os-v/dist/
