@@ -5,11 +5,7 @@ import {
   Database,
   Activity,
   ShieldCheck,
-  BookOpen,
-  Server,
-  RefreshCw,
-  CheckCircle2,
-  AlertTriangle
+  RefreshCw
 } from 'lucide-react';
 import PipelineController from './components/PipelineController';
 import HumanApprovalQueueView from './components/HumanApprovalQueueView';
@@ -46,9 +42,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans flex flex-col selection:bg-cyan-500 selection:text-slate-950">
-      {/* Top Fixed Navigation & Status Bar */}
       <header className="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 px-4 sm:px-6 py-3 flex items-center justify-between flex-wrap gap-3">
-        {/* Brand & Identity */}
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-black text-lg shadow-lg shadow-cyan-500/10">
             K
@@ -64,7 +58,6 @@ export default function App() {
           </div>
         </div>
 
-        {/* Global Navigation Tabs */}
         <div className="flex items-center gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-mono">
           <button
             onClick={() => setActiveTab('pipeline')}
@@ -130,7 +123,6 @@ export default function App() {
           </button>
         </div>
 
-        {/* Global Health & Refresh */}
         <div className="flex items-center gap-2">
           {systemStatus && (
             <div className="hidden lg:flex items-center gap-2 bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800 text-[11px] font-mono">
@@ -148,7 +140,6 @@ export default function App() {
         </div>
       </header>
 
-      {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-8">
         {activeTab === 'pipeline' && <PipelineController onPipelineCompleted={fetchStatus} />}
         {activeTab === 'queue' && <HumanApprovalQueueView />}
@@ -159,8 +150,3 @@ export default function App() {
     </div>
   );
 }
-```[cite: 1]
-
-4. Upar right corner me **`Commit changes...`** par click karke save kar dein.
-
-Save karne ke baad batayein!
