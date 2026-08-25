@@ -127,8 +127,3 @@ export default function ProductionHistoryView() {
     </div>
   );
 }
-```[cite: 4]
-
-4. Upar right corner se **`Commit changes...`** -> **`Commit changes`** par click karein.
-
-Commit hote hi batayein, aakhiri component add karenge.
