@@ -157,8 +157,3 @@ export default function HumanApprovalQueueView() {
     </div>
   );
 }
-```[cite: 2]
-
-4. **`Commit changes...`** -> **`Commit changes`** par click kar dein.
-
-Commit karne ke baad batayein, teesri file banayenge.
