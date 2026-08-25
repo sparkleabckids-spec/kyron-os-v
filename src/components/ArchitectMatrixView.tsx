@@ -3,21 +3,9 @@ import {
   ShieldCheck,
   BookOpen,
   Terminal,
-  Cpu,
-  Shield,
-  CheckCircle2,
-  AlertTriangle,
-  HelpCircle,
-  Layers,
   Compass,
-  Server,
-  Lock,
-  FileText,
-  Workflow,
-  FolderGit2,
   Boxes,
-  SlidersHorizontal,
-  Code as CodeIcon,
+  FileText,
   Printer
 } from 'lucide-react';
 
@@ -193,25 +181,6 @@ export default function ArchitectMatrixView() {
               </tbody>
             </table>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 pt-2">
-            <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl text-center">
-              <div className="text-2xl font-bold text-cyan-400 font-mono">20 / 20</div>
-              <div className="text-[11px] text-slate-400 uppercase tracking-wider mt-1">Sections Evaluated</div>
-            </div>
-            <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl text-center">
-              <div className="text-2xl font-bold text-emerald-400 font-mono">9.62 / 10</div>
-              <div className="text-[11px] text-slate-400 uppercase tracking-wider mt-1">Average Quality Score</div>
-            </div>
-            <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl text-center">
-              <div className="text-2xl font-bold text-amber-400 font-mono">4 Gaps</div>
-              <div className="text-[11px] text-slate-400 uppercase tracking-wider mt-1">Disclosed Architectural Gaps</div>
-            </div>
-            <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl text-center">
-              <div className="text-2xl font-bold text-cyan-400 font-mono">DRAFT</div>
-              <div className="text-[11px] text-slate-400 uppercase tracking-wider mt-1">Document Release Status</div>
-            </div>
-          </div>
         </div>
       ) : (
         <div className="flex gap-6">
@@ -273,17 +242,6 @@ export default function ArchitectMatrixView() {
                   <span className="text-emerald-400 font-bold">VERIFIED &amp; LOCKED</span>
                 </div>
               </div>
-
-              <div className="p-4 bg-slate-950 rounded-xl border border-slate-800 text-xs font-mono grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div><span className="text-slate-500">Document Title:</span> <span className="text-slate-200 font-semibold">Project Identity Specification</span></div>
-                <div><span className="text-slate-500">Document Version:</span> <span className="text-cyan-400 font-semibold">v1.0-DRAFT</span></div>
-                <div><span className="text-slate-500">Classification:</span> <span className="text-slate-200 font-semibold">Enterprise Confidential / Internal</span></div>
-                <div><span className="text-slate-500">Product Owner:</span> <span className="text-slate-200 font-semibold">Rohit</span></div>
-                <div><span className="text-slate-500">Software Architect:</span> <span className="text-slate-200 font-semibold">ChatGPT</span></div>
-                <div><span className="text-slate-500">Engineering Lead:</span> <span className="text-slate-200 font-semibold">Google AI Studio</span></div>
-                <div><span className="text-slate-500">Creation Timestamp:</span> <span className="text-slate-200 font-semibold">2026-08-05</span></div>
-                <div><span className="text-slate-500">Last Updated:</span> <span className="text-slate-200 font-semibold">2026-08-05</span></div>
-              </div>
             </section>
 
             <section id="executive-summary" className="space-y-4 scroll-mt-28">
@@ -292,10 +250,7 @@ export default function ArchitectMatrixView() {
                 <h2>2. Executive Summary</h2>
               </div>
               <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                This document establishes the definitive commercial, technological, and strategic identity for <strong className="text-white">KYRON OS</strong>. As enterprise operations increasingly require local AI integration, strict data sovereignty, and sub-millisecond local execution, standard consumer SaaS models may introduce latency constraints, data governance challenges, and vendor lock-in for sensitive enterprise workloads.
-              </p>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                KYRON OS is engineered from the ground up as a native, local-first <strong className="text-white">AI Business Operating System (AI-BOS)</strong>. It provides an isolated, highly performant runtime environment that orchestrates local and cloud intelligence threads, sovereign file assets, and enterprise workflows directly on executive workstations.
+                This document establishes the definitive commercial, technological, and strategic identity for <strong className="text-white">KYRON OS</strong>.
               </p>
             </section>
 
@@ -309,22 +264,6 @@ export default function ArchitectMatrixView() {
                   <span className="text-cyan-400 font-bold block">Commercial Name</span>
                   <code className="text-white bg-slate-900 px-2 py-0.5 rounded font-mono block">KYRON OS</code>
                 </div>
-                <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
-                  <span className="text-cyan-400 font-bold block">Internal Code Name</span>
-                  <code className="text-white bg-slate-900 px-2 py-0.5 rounded font-mono block">KYRON</code>
-                </div>
-                <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
-                  <span className="text-cyan-400 font-bold block">Short Code</span>
-                  <code className="text-cyan-300 bg-slate-900 px-2 py-0.5 rounded font-mono block">KOS</code>
-                </div>
-                <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1">
-                  <span className="text-cyan-400 font-bold block">Official Namespace</span>
-                  <code className="text-emerald-400 bg-slate-900 px-2 py-0.5 rounded font-mono block">kyron.*</code>
-                </div>
-                <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-1 sm:col-span-2">
-                  <span className="text-cyan-400 font-bold block">System Subtitle</span>
-                  <code className="text-white bg-slate-900 px-2 py-0.5 rounded font-mono block">AI Business Operating System</code>
-                </div>
               </div>
             </section>
 
@@ -336,11 +275,7 @@ export default function ArchitectMatrixView() {
               <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs space-y-2">
                 <div className="flex gap-4 font-mono text-[11px]">
                   <div>Category Code: <strong className="text-cyan-400">ENT-AIBOS-NX</strong></div>
-                  <div>Archetype: <strong className="text-cyan-400">Sovereign Local Workstation Engine</strong></div>
                 </div>
-                <p className="text-slate-400 leading-relaxed text-xs">
-                  An AI-BOS sits natively between local computing resources and autonomous AI agent networks, providing process management, memory context management, local security boundaries, and zero-latency workflow execution.
-                </p>
               </div>
             </section>
           </div>
@@ -349,14 +284,3 @@ export default function ArchitectMatrixView() {
     </div>
   );
 }
-```[cite: 4]
-* **`Commit changes...`** par click karein.
-
----
-
-**Step 2: Baaki 3 components create karein**
-Isi tarah `src/` ke andar baaki teen files banayein[cite: 1]:
-* `components/HumanApprovalQueueView.tsx`[cite: 1, 5]
-* `components/PipelineController.tsx`[cite: 1]
-* `components/ProductionHistoryView.tsx`[cite: 1]
-* `components/WordPressDiagnosticsView.tsx`[cite: 1]
